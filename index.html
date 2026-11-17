@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d0b">
+<title>BTC BRAIN PRO</title>
+<style>
+:root{--bg:#070b09;--panel:#0d1511;--panel2:#101c16;--line:#1d3025;--text:#e8f4ec;--muted:#82978a;--green:#39f28b;--red:#ff6474;--amber:#f4c45e}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% -15%,#123323 0,transparent 38%),var(--bg);color:var(--text);font:14px Inter,system-ui,Arial,sans-serif}
+header{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;background:#080e0beF;backdrop-filter:blur(14px);z-index:5}
+.brand{font-weight:900;letter-spacing:1.3px;font-size:18px}.brand span{color:var(--green)}.status{color:var(--muted);font-size:11px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-right:6px}
+.wrap{max-width:1240px;margin:auto;padding:22px}.topline{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:18px}.eyebrow{color:var(--green);font-size:10px;letter-spacing:2px;font-weight:800}.title{font-size:27px;font-weight:800;margin:5px 0}.sub{color:var(--muted);font-size:12px}
+.tabs{display:flex;gap:7px;overflow:auto;padding:4px 0 16px}.tab{white-space:nowrap;background:#0d1511;border:1px solid var(--line);color:#a8b9ad;padding:10px 15px;border-radius:9px;font-weight:700;cursor:pointer}.tab.active{background:#153322;color:var(--green);border-color:#2c7c4b}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:linear-gradient(145deg,#101a14,#0b110e);border:1px solid var(--line);border-radius:13px;padding:15px;min-width:0}.label{color:var(--muted);font-size:11px}.big{font-size:22px;font-weight:800;margin:9px 0 4px}.green{color:var(--green)}.red{color:var(--red)}.muted{color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:13px;margin-top:13px}.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.section-head h2{font-size:14px;margin:0}.pill{font-size:10px;color:var(--amber);border:1px solid #6a5422;border-radius:20px;padding:5px 8px}
+.chart{height:230px;border-radius:9px;background:repeating-linear-gradient(to bottom,transparent 0,transparent 45px,#1b2a21 46px),repeating-linear-gradient(to right,transparent 0,transparent 70px,#17251c 71px);position:relative;overflow:hidden}.chart svg{width:100%;height:100%}.notice{border:1px solid #665321;background:#241e0d;color:#e8cf88;border-radius:9px;padding:10px 12px;font-size:11px;line-height:1.5;margin-top:12px}
+.search{width:100%;background:#080f0b;border:1px solid var(--line);border-radius:9px;padding:11px;color:var(--text);outline:none;margin:12px 0}.search:focus{border-color:#318d56}
+table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;color:var(--muted);font-weight:600;padding:9px 6px;border-bottom:1px solid var(--line)}td{padding:12px 6px;border-bottom:1px solid #17251c}tr:last-child td{border:0}.asset{font-weight:750}.symbol{color:var(--muted);font-size:10px;margin-top:3px}.tag{font-size:10px;color:var(--amber);background:#302710;padding:4px 7px;border-radius:5px}
+.signal{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 0}.signal:last-child{border:0}.signal b{font-size:12px}.signal small{display:block;color:var(--muted);margin-top:4px}
+.footer{color:#617468;text-align:center;font-size:10px;padding:25px 0}
+.hidden{display:none!important}
+@media(max-width:760px){header{padding:0 15px}.wrap{padding:16px}.grid{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.title{font-size:23px}.big{font-size:19px}}
+</style>
+</head>
+<body>
+<header><div class="brand">BTC <span>BRAIN</span> PRO</div><div class="status"><i class="live-dot"></i> DATA CONNECTION PENDING</div></header>
+<main class="wrap">
+ <div class="topline"><div><div class="eyebrow">MARKET INTELLIGENCE TERMINAL</div><div class="title">Trading Dashboard</div><div class="sub">Crypto + Indian Markets · Analysis workspace</div></div><div class="tag">PAPER / ANALYSIS</div></div>
+ <nav class="tabs" aria-label="Market sections">
+  <button class="tab active" data-view="overview">Overview</button><button class="tab" data-view="crypto">Crypto</button><button class="tab" data-view="indian">Indian Market</button><button class="tab" data-view="signals">Signals</button><button class="tab" data-view="watchlist">Watchlist</button>
+ </nav>
+ <section id="overview">
+  <div class="grid">
+   <div class="card"><div class="label">CRYPTO MARKET</div><div class="big">—</div><div class="sub">Live feed not connected</div></div>
+   <div class="card"><div class="label">NIFTY 50</div><div class="big">—</div><div class="sub">NSE data pending</div></div>
+   <div class="card"><div class="label">SENSEX</div><div class="big">—</div><div class="sub">BSE data pending</div></div>
+   <div class="card"><div class="label">ACTIVE SIGNALS</div><div class="big">—</div><div class="sub">Analysis engine pending</div></div>
+  </div>
+  <div class="layout"><div class="card"><div class="section-head"><h2>Market Chart</h2><span class="pill">LIVE FEED PENDING</span></div><div class="chart"><svg viewBox="0 0 700 230" preserveAspectRatio="none"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#39f28b" stop-opacity=".25"/><stop offset="1" stop-color="#39f28b" stop-opacity="0"/></linearGradient></defs><path d="M0 170 L55 155 L100 165 L145 118 L190 130 L235 90 L280 112 L330 75 L375 95 L420 58 L470 82 L515 45 L560 66 L610 28 L660 50 L700 22 L700 230 L0 230Z" fill="url(#area)"/><path d="M0 170 L55 155 L100 165 L145 118 L190 130 L235 90 L280 112 L330 75 L375 95 L420 58 L470 82 L515 45 L560 66 L610 28 L660 50 L700 22" fill="none" stroke="#39f28b" stroke-width="2.5"/></svg></div><div class="notice">Preview chart only. Real-time prices and candles will appear after connecting a suitable market-data provider.</div></div>
+   <div class="card"><div class="section-head"><h2>Market Snapshot</h2><span class="muted">WATCH</span></div><div class="signal"><div><b>Bitcoin</b><small>BTC / USDT</small></div><span class="muted">—</span></div><div class="signal"><div><b>Ethereum</b><small>ETH / USDT</small></div><span class="muted">—</span></div><div class="signal"><div><b>NIFTY 50</b><small>NSE Index</small></div><span class="muted">—</span></div><div class="signal"><div><b>BANK NIFTY</b><small>NSE Index</small></div><span class="muted">—</span></div><div class="signal"><div><b>SENSEX</b><small>BSE Index</small></div><span class="muted">—</span></div></div></div>
+ </section>
+ <section id="crypto" class="hidden"><div class="card"><div class="section-head"><h2>Crypto Market</h2><span class="pill">DATA PENDING</span></div><input class="search" id="cryptoSearch" placeholder="Search crypto: BTC, ETH, SOL..."><table><thead><tr><th>ASSET</th><th>PRICE</th><th>24H</th><th>STATUS</th></tr></thead><tbody id="cryptoRows"></tbody></table></div></section>
+ <section id="indian" class="hidden"><div class="card"><div class="section-head"><h2>Indian Market</h2><span class="pill">NSE / BSE</span></div><input class="search" id="indianSearch" placeholder="Search index or stock..."><table><thead><tr><th>INSTRUMENT</th><th>PRICE</th><th>CHANGE</th><th>EXCHANGE</th></tr></thead><tbody id="indianRows"></tbody></table></div></section>
+ <section id="signals" class="hidden"><div class="card"><div class="section-head"><h2>AI Trade Signals</h2><span class="pill">ENGINE NOT CONNECTED</span></div><div class="signal"><div><b>BTC / USDT</b><small>Direction · Entry · Stop loss · Targets</small></div><span class="tag">WAIT</span></div><div class="signal"><div><b>NIFTY 50</b><small>Trend · Support · Resistance</small></div><span class="tag">WAIT</span></div><div class="notice">No live trading signal is being generated yet. Connect and validate the analysis engine before using signals for real trades.</div></div></section>
+ <section id="watchlist" class="hidden"><div class="card"><div class="section-head"><h2>Your Watchlist</h2><span class="pill">LOCAL PREVIEW</span></div><p class="sub">BTC, ETH, SOL, NIFTY 50, BANK NIFTY, SENSEX</p><div class="notice">Watchlist prices will populate when live data is connected.</div></div></section>
+ <div class="footer">BTC BRAIN PRO · MARKET DATA NOT CONNECTED · NOT FINANCIAL ADVICE</div>
+</main>
+<script>
+const crypto=[["Bitcoin","BTC / USDT"],["Ethereum","ETH / USDT"],["Tether","USDT"],["BNB","BNB / USDT"],["Solana","SOL / USDT"],["XRP","XRP / USDT"],["USDC","USDC"],["Dogecoin","DOGE / USDT"],["Cardano","ADA / USDT"],["TRON","TRX / USDT"],["Avalanche","AVAX / USDT"],["Chainlink","LINK / USDT"]];
+const indian=[["NIFTY 50","INDEX","NSE"],["BANK NIFTY","INDEX","NSE"],["FINNIFTY","INDEX","NSE"],["MIDCAP NIFTY","INDEX","NSE"],["SENSEX","INDEX","BSE"],["BANKEX","INDEX","BSE"],["RELIANCE","STOCK","NSE"],["HDFCBANK","STOCK","NSE"],["ICICIBANK","STOCK","NSE"],["INFY","STOCK","NSE"],["TCS","STOCK","NSE"],["SBIN","STOCK","NSE"],["ITC","STOCK","NSE"],["TATAMOTORS","STOCK","NSE"]];
+function fill(id,rows,kind){const body=document.getElementById(id);body.innerHTML=rows.map(r=>`<tr><td><div class="asset">${r[0]}</div><div class="symbol">${r[1]}</div></td><td class="muted">—</td><td class="muted">—</td><td><span class="tag">${kind==='crypto'?'PENDING':r[2]}</span></td></tr>`).join('')}
+fill('cryptoRows',crypto,'crypto');fill('indianRows',indian,'indian');
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');['overview','crypto','indian','signals','watchlist'].forEach(v=>document.getElementById(v).classList.toggle('hidden',v!==b.dataset.view));}));
+function filter(input,table){document.getElementById(input).addEventListener('input',e=>{let q=e.target.value.toLowerCase();document.querySelectorAll('#'+table+' tr').forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q)?'':'none')})}
+filter('cryptoSearch','cryptoRows');filter('indianSearch','indianRows');
+</script>
+</body></html>
