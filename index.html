@@ -1,1 +1,356 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d0b">
+<title>BTC BRAIN PRO</title>
+<style>
+:root{--bg:#070b09;--panel:#0d1511;--line:#1d3025;--text:#e8f4ec;--muted:#82978a;--green:#39f28b;--red:#ff6474;--amber:#f4c45e}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 70% -15%,#123323 0,transparent 38%),var(--bg);color:var(--text);font:14px Inter,system-ui,Arial,sans-serif}
+header{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;background:#080e0bef;z-index:5}
+.brand{font-weight:900;letter-spacing:1.3px;font-size:18px}
+.brand span{color:var(--green)}
+.status{color:var(--muted);font-size:11px}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-right:6px}
+.wrap{max-width:1240px;margin:auto;padding:22px}
+.topline{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:18px}
+.eyebrow{color:var(--green);font-size:10px;letter-spacing:2px;font-weight:800}
+.title{font-size:27px;font-weight:800;margin:5px 0}
+.sub{color:var(--muted);font-size:12px}
+.tabs{display:flex;gap:7px;overflow:auto;padding:4px 0 16px}
+.tab{white-space:nowrap;background:#0d1511;border:1px solid var(--line);color:#a8b9ad;padding:10px 15px;border-radius:9px;font-weight:700;cursor:pointer}
+.tab.active{background:#153322;color:var(--green);border-color:#2c7c4b}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card{background:linear-gradient(145deg,#101a14,#0b110e);border:1px solid var(--line);border-radius:13px;padding:15px;min-width:0}
+.label{color:var(--muted);font-size:11px}
+.big{font-size:22px;font-weight:800;margin:9px 0 4px}
+.green{color:var(--green)}
+.red{color:var(--red)}
+.muted{color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:13px;margin-top:13px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.section-head h2{font-size:14px;margin:0}
+.pill{font-size:10px;color:var(--amber);border:1px solid #6a5422;border-radius:20px;padding:5px 8px}
+.chart{height:230px;border-radius:9px;background:repeating-linear-gradient(to bottom,transparent 0,transparent 45px,#1b2a21 46px),repeating-linear-gradient(to right,transparent 0,transparent 70px,#17251c 71px);overflow:hidden}
+.chart svg{width:100%;height:100%}
+.notice{border:1px solid #665321;background:#241e0d;color:#e8cf88;border-radius:9px;padding:10px 12px;font-size:11px;line-height:1.5;margin-top:12px}
+.search{width:100%;background:#080f0b;border:1px solid var(--line);border-radius:9px;padding:11px;color:var(--text);outline:none;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;color:var(--muted);font-weight:600;padding:9px 6px;border-bottom:1px solid var(--line)}
+td{padding:12px 6px;border-bottom:1px solid #17251c}
+.asset{font-weight:750}
+.symbol{color:var(--muted);font-size:10px;margin-top:3px}
+.tag{font-size:10px;color:var(--amber);background:#302710;padding:4px 7px;border-radius:5px}
+.signal{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding:12px 0}
+.signal b{font-size:12px}
+.signal small{display:block;color:var(--muted);margin-top:4px}
+.footer{color:#617468;text-align:center;font-size:10px;padding:25px 0}
+.hidden{display:none!important}
+@media(max-width:760px){
+header{padding:0 15px}
+.wrap{padding:16px}
+.grid{grid-template-columns:repeat(2,1fr)}
+.layout{grid-template-columns:1fr}
+.title{font-size:23px}
+.big{font-size:19px}
+.status{font-size:9px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="brand">BTC <span>BRAIN</span> PRO</div>
+<div class="status" id="connectionStatus"><i class="live-dot"></i> CONNECTING LIVE DATA…</div>
+</header>
+
+<main class="wrap">
+<div class="topline">
+<div>
+<div class="eyebrow">MARKET INTELLIGENCE TERMINAL</div>
+<div class="title">Trading Dashboard</div>
+<div class="sub">Crypto + Indian Markets · Analysis workspace</div>
+</div>
+<div class="tag">PAPER / ANALYSIS</div>
+</div>
+
+<nav class="tabs">
+<button class="tab active" data-view="overview">Overview</button>
+<button class="tab" data-view="crypto">Crypto</button>
+<button class="tab" data-view="indian">Indian Market</button>
+<button class="tab" data-view="signals">Signals</button>
+<button class="tab" data-view="watchlist">Watchlist</button>
+</nav>
+
+<section id="overview">
+<div class="grid">
+<div class="card">
+<div class="label">CRYPTO MARKET · BTC/USDT</div>
+<div class="big" id="btcPrice">Connecting…</div>
+<div class="sub" id="btcChange">Waiting for market data</div>
+</div>
+<div class="card">
+<div class="label">NIFTY 50</div>
+<div class="big">—</div>
+<div class="sub">NSE data pending</div>
+</div>
+<div class="card">
+<div class="label">SENSEX</div>
+<div class="big">—</div>
+<div class="sub">BSE data pending</div>
+</div>
+<div class="card">
+<div class="label">MOMENTUM WATCH SIGNALS</div>
+<div class="big" id="signalCount">0</div>
+<div class="sub">Rule-based market watch</div>
+</div>
+</div>
+
+<div class="layout">
+<div class="card">
+<div class="section-head">
+<h2>BTC / USDT · 1m Chart</h2>
+<span class="pill" id="chartStatus">CONNECTING</span>
+</div>
+<div class="chart">
+<svg id="liveChart" viewBox="0 0 700 230" preserveAspectRatio="none"></svg>
+</div>
+<div class="notice" id="chartNote">Live public crypto market data. Chart refreshes automatically.</div>
+</div>
+
+<div class="card">
+<div class="section-head"><h2>Market Snapshot</h2><span class="muted">WATCH</span></div>
+<div class="signal"><div><b>Bitcoin</b><small>BTC / USDT</small></div><span id="snapBTC">—</span></div>
+<div class="signal"><div><b>Ethereum</b><small>ETH / USDT</small></div><span id="snapETH">—</span></div>
+<div class="signal"><div><b>NIFTY 50</b><small>NSE Index</small></div><span>—</span></div>
+<div class="signal"><div><b>BANK NIFTY</b><small>NSE Index</small></div><span>—</span></div>
+<div class="signal"><div><b>SENSEX</b><small>BSE Index</small></div><span>—</span></div>
+</div>
+</div>
+</section>
+
+<section id="crypto" class="hidden">
+<div class="card">
+<div class="section-head">
+<h2>Crypto Market</h2>
+<span class="pill" id="cryptoStatus">CONNECTING</span>
+</div>
+<input class="search" id="cryptoSearch" placeholder="Search crypto: BTC, ETH, SOL...">
+<table>
+<thead><tr><th>ASSET</th><th>PRICE</th><th>24H</th><th>STATUS</th></tr></thead>
+<tbody id="cryptoRows"></tbody>
+</table>
+</div>
+</section>
+
+<section id="indian" class="hidden">
+<div class="card">
+<div class="section-head"><h2>Indian Market</h2><span class="pill">NSE / BSE</span></div>
+<input class="search" id="indianSearch" placeholder="Search index or stock...">
+<table>
+<thead><tr><th>INSTRUMENT</th><th>PRICE</th><th>CHANGE</th><th>EXCHANGE</th></tr></thead>
+<tbody id="indianRows"></tbody>
+</table>
+</div>
+</section>
+
+<section id="signals" class="hidden">
+<div class="card">
+<div class="section-head">
+<h2>Momentum Watch Signals</h2>
+<span class="pill" id="signalsStatus">WAITING FOR DATA</span>
+</div>
+<div id="signalRows">Waiting for market data...</div>
+<div class="notice">These are simple 24-hour momentum watch labels, not AI predictions or buy/sell instructions. Confirm with your own research before any trade.</div>
+</div>
+</section>
+
+<section id="watchlist" class="hidden">
+<div class="card">
+<div class="section-head"><h2>Your Watchlist</h2><span class="pill">LOCAL PREVIEW</span></div>
+<p class="sub">BTC, ETH, SOL, NIFTY 50, BANK NIFTY, SENSEX</p>
+<div class="notice">Crypto prices update automatically when connected.</div>
+</div>
+</section>
+
+<div class="footer">BTC BRAIN PRO · PUBLIC CRYPTO MARKET DATA · INDIAN INDEX FEED REQUIRES A SEPARATE PROVIDER · NOT FINANCIAL ADVICE</div>
+</main>
+
+<script>
+const liveSymbols=[
+{name:'Bitcoin',symbol:'BTC / USDT',pair:'BTCUSDT'},
+{name:'Ethereum',symbol:'ETH / USDT',pair:'ETHUSDT'},
+{name:'BNB',symbol:'BNB / USDT',pair:'BNBUSDT'},
+{name:'Solana',symbol:'SOL / USDT',pair:'SOLUSDT'},
+{name:'XRP',symbol:'XRP / USDT',pair:'XRPUSDT'},
+{name:'Dogecoin',symbol:'DOGE / USDT',pair:'DOGEUSDT'},
+{name:'Cardano',symbol:'ADA / USDT',pair:'ADAUSDT'},
+{name:'TRON',symbol:'TRX / USDT',pair:'TRXUSDT'},
+{name:'Avalanche',symbol:'AVAX / USDT',pair:'AVAXUSDT'},
+{name:'Chainlink',symbol:'LINK / USDT',pair:'LINKUSDT'}
+];
+
+const indian=[
+["NIFTY 50","INDEX","NSE"],
+["BANK NIFTY","INDEX","NSE"],
+["FINNIFTY","INDEX","NSE"],
+["MIDCAP NIFTY","INDEX","NSE"],
+["SENSEX","INDEX","BSE"],
+["BANKEX","INDEX","BSE"],
+["RELIANCE","STOCK","NSE"],
+["HDFCBANK","STOCK","NSE"],
+["ICICIBANK","STOCK","NSE"],
+["INFY","STOCK","NSE"],
+["TCS","STOCK","NSE"],
+["SBIN","STOCK","NSE"],
+["ITC","STOCK","NSE"],
+["TATAMOTORS","STOCK","NSE"]
+];
+
+function fillIndian(){
+document.getElementById('indianRows').innerHTML=indian.map(r=>`
+<tr>
+<td><div class="asset">${r[0]}</div><div class="symbol">${r[1]}</div></td>
+<td class="muted">—</td>
+<td class="muted">—</td>
+<td><span class="tag">${r[2]} · PROVIDER NEEDED</span></td>
+</tr>`).join('');
+}
+fillIndian();
+
+document.querySelectorAll('.tab').forEach(b=>{
+b.addEventListener('click',()=>{
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+b.classList.add('active');
+['overview','crypto','indian','signals','watchlist'].forEach(v=>{
+document.getElementById(v).classList.toggle('hidden',v!==b.dataset.view);
+});
+});
+});
+
+function filter(input,table){
+document.getElementById(input).addEventListener('input',e=>{
+let q=e.target.value.toLowerCase();
+document.querySelectorAll('#'+table+' tr').forEach(r=>{
+r.style.display=r.innerText.toLowerCase().includes(q)?'':'none';
+});
+});
+}
+filter('cryptoSearch','cryptoRows');
+filter('indianSearch','indianRows');
+
+const money=n=>'$'+Number(n).toLocaleString('en-US',{
+minimumFractionDigits:2,
+maximumFractionDigits:Number(n)<1?6:2
+});
+const pct=n=>(Number(n)>=0?'+':'')+Number(n).toFixed(2)+'%';
+const byPair={};
+
+function renderCrypto(){
+const rows=liveSymbols.map(c=>{
+const d=byPair[c.pair];
+if(!d)return `<tr><td>${c.name}</td><td>Loading…</td><td>—</td><td>WAITING</td></tr>`;
+const up=Number(d.priceChangePercent)>=0;
+return `<tr>
+<td><div class="asset">${c.name}</div><div class="symbol">${c.symbol}</div></td>
+<td>${money(d.lastPrice)}</td>
+<td class="${up?'green':'red'}">${pct(d.priceChangePercent)}</td>
+<td><span class="tag">LIVE</span></td>
+</tr>`;
+}).join('');
+
+document.getElementById('cryptoRows').innerHTML=rows;
+
+const btc=byPair.BTCUSDT;
+const eth=byPair.ETHUSDT;
+
+if(btc){
+document.getElementById('btcPrice').textContent=money(btc.lastPrice);
+document.getElementById('btcChange').innerHTML=
+`<span class="${Number(btc.priceChangePercent)>=0?'green':'red'}">${pct(btc.priceChangePercent)} · 24h</span> · Live`;
+document.getElementById('snapBTC').textContent=money(btc.lastPrice);
+}
+if(eth)document.getElementById('snapETH').textContent=money(eth.lastPrice);
+
+const active=liveSymbols.filter(c=>
+byPair[c.pair]&&Math.abs(Number(byPair[c.pair].priceChangePercent))>=2
+);
+
+document.getElementById('signalCount').textContent=active.length;
+document.getElementById('signalsStatus').textContent='RULE-BASED · LIVE';
+
+document.getElementById('signalRows').innerHTML=active.length?
+active.map(c=>{
+const d=byPair[c.pair];
+const up=Number(d.priceChangePercent)>=0;
+return `<div class="signal">
+<div><b>${c.name} · ${c.symbol}</b>
+<small>${pct(d.priceChangePercent)} over rolling 24h · momentum watch</small></div>
+<span class="tag ${up?'green':'red'}">${up?'BULLISH WATCH':'BEARISH WATCH'}</span>
+</div>`;
+}).join(''):
+'<div class="signal"><b>No momentum watch signals</b><span class="tag">NEUTRAL</span></div>';
+}
+
+async function loadCrypto(){
+const status=document.getElementById('connectionStatus');
+try{
+const symbols=liveSymbols.map(c=>c.pair);
+const url='https://data-api.binance.vision/api/v3/ticker/24hr?symbols='+encodeURIComponent(JSON.stringify(symbols));
+const response=await fetch(url,{cache:'no-store'});
+if(!response.ok)throw new Error('API error '+response.status);
+
+const data=await response.json();
+data.forEach(d=>byPair[d.symbol]=d);
+renderCrypto();
+
+status.innerHTML='<i class="live-dot" style="background:var(--green)"></i> CRYPTO DATA LIVE · UPDATED '+new Date().toLocaleTimeString();
+document.getElementById('cryptoStatus').textContent='LIVE · 10 SEC REFRESH';
+}catch(err){
+status.innerHTML='<i class="live-dot"></i> CRYPTO CONNECTION ISSUE';
+document.getElementById('cryptoStatus').textContent='CONNECTION ISSUE';
+document.getElementById('chartNote').textContent='Could not load public crypto data. Check internet connection or try again later.';
+console.error(err);
+}
+}
+
+async function loadChart(){
+try{
+const r=await fetch('https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=60',{cache:'no-store'});
+if(!r.ok)throw new Error('Chart API error');
+
+const candles=await r.json();
+const values=candles.map(c=>Number(c[4]));
+const min=Math.min(...values);
+const max=Math.max(...values);
+const span=max-min||1;
+const pts=values.map((v,i)=>
+`${(i/(values.length-1))*700},${205-((v-min)/span)*180}`
+).join(' ');
+
+document.getElementById('liveChart').innerHTML=`
+<defs>
+<linearGradient id="liveArea" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0" stop-color="#39f28b" stop-opacity=".25"/>
+<stop offset="1" stop-color="#39f28b" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<polygon points="0,230 ${pts} 700,230" fill="url(#liveArea)"/>
+<polyline points="${pts}" fill="none" stroke="#39f28b" stroke-width="2.5"/>`;
+
+document.getElementById('chartStatus').textContent='LIVE · 1 MIN';
+}catch(e){
+document.getElementById('chartStatus').textContent='CHART UNAVAILABLE';
+}
+}
+
+loadCrypto();
+loadChart();
+setInterval(loadCrypto,10000);
+setInterval(loadChart,60000);
+</script>
+</body>
+</html>
